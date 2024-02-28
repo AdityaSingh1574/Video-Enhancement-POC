@@ -336,7 +336,7 @@ def is_approximated_rectangle(contour):
   approx_contour = cv2.approxPolyDP(contour, epsilon, True)
 
   # Check if the approximated contour has 4 vertices (rectangle)
-  return len(approx_contour) == 4
+  return len(approx_contour) >= 4
 
 def find_most_common_of_largest_contours_test(video_path, skip_time=2):
   cap = cv2.VideoCapture(video_path)
