@@ -26,6 +26,7 @@ def main():
 
                import os
                os.remove(temp_video_path)
+               os.remove(temp_video_path_2)
                # os.remove(output_video_path)
 
 if __name__ == "__main__":
