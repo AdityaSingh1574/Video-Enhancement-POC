@@ -25,9 +25,12 @@ def main():
                     with st.spinner("Processing..."):
                          try:
                               temp_video_path_2 = video_crop.get_contour_remove_black_borders(temp_video_path)
+                              print(type(temp_video_path_2), 'hahahaha')
                               output_video_path = video_crop.zoomed_to_fill_result_video(temp_video_path_2)
+                              print(type(output_video_path), 'hehehehe')
                               st.write("Processed Video:")
                               processed_video_file = open(output_video_path, "rb").read()
+                              print(type(processed_video_file), 'heehhahahagdbh')
                               st.video(processed_video_file)
                          except Exception as e:
                               st.error(f"Error processing video: {e}")
