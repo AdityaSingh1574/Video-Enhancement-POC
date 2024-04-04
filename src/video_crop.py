@@ -18,8 +18,8 @@ def crop_video(input_file, x1, y1, x2, y2):
   height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
   # Define the codec and create video writer object
-  fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Or other suitable codec
-  out = cv2.VideoWriter(output_file, fourcc, fps, (x2 - x1, y2 - y1))
+  fourcc = cv2.VideoWriter_fourcc(*'h264')  # Or other suitable codec
+  out = cv2.VideoWriter(output_file, 0, fps, (x2 - x1, y2 - y1))
 
   while cap.isOpened():
     ret, frame = cap.read()
@@ -153,8 +153,8 @@ def get_contour_remove_black_borders(vid_link):
 
   output_file = "temp_video_2.mp4"
   # Save the cropped frame to a new video file
-  fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Specify the codec (adjust as needed)
-  out = cv2.VideoWriter(output_file, fourcc, cap.get(cv2.CAP_PROP_FPS), (w, h))
+  fourcc = cv2.VideoWriter_fourcc(*'h264')  # Specify the codec (adjust as needed)
+  out = cv2.VideoWriter(output_file, 0, cap.get(cv2.CAP_PROP_FPS), (w, h))
 
   while True:
     # print("Reading the video \n")

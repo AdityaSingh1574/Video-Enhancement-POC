@@ -15,8 +15,8 @@ def yolo_video_bounding_create(input_video_path):
     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
     # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter(output_video_path, 0x00000021, fps, (frame_width, frame_height))
+    fourcc = cv2.VideoWriter_fourcc(*'h264')
+    out = cv2.VideoWriter(output_video_path, 0, fps, (frame_width, frame_height))
 
     # Process each frame in the video
     while cap.isOpened():

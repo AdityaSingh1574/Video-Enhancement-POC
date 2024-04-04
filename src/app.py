@@ -84,8 +84,9 @@ def main():
                     with st.spinner("Processing..."):
                          try:
                               temp_video_path_2 = video_crop.get_contour_remove_black_borders(temp_video_path)
+                              print(temp_video_path_2)
                               output_video_path = video_crop.zoomed_to_fill_result_video(temp_video_path_2)
-
+                              print(output_video_path)
                               with col2:
                                    st.write("Processed Video:")
                                    processed_video_file = open(output_video_path, "rb").read()
