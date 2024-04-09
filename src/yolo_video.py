@@ -18,8 +18,17 @@ def yolo_video_bounding_create(input_video_path):
     fourcc = cv2.VideoWriter_fourcc(*'h264')
     out = cv2.VideoWriter(output_video_path, 0, fps, (frame_width, frame_height))
 
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    frames_to_skip = fps * 0.5  # Skip 2 seconds
+
+
     # Process each frame in the video
     while cap.isOpened():
+
+        current_frame_number = cap.get(cv2.CAP_PROP_POS_FRAMES)
+        next_target_frame = current_frame_number + frames_to_skip
+        cap.set(cv2.CAP_PROP_POS_FRAMES, next_target_frame)
+
         ret, frame = cap.read()
         if not ret:
             break
@@ -34,6 +43,7 @@ def yolo_video_bounding_create(input_video_path):
         all_boxes = np.array(all_boxes)
 
         # Calculate the outermost bounding box
+        # need to make changes here : largest height and max broad box.
         if len(all_boxes) > 0:
             xmin = np.min(all_boxes[:, 0])
             ymin = np.min(all_boxes[:, 1])
